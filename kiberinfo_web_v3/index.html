@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <title>Kiberinfo_WindTurbine</title>
+    <script src="js/mqttws31.js"></script>
+    <style>
+      body {
+        
+        font-family: arial;
+        color: white;
+        line-height: 1.5;
+        height: 100vh;
+        position: relative;
+        
+        background: linear-gradient(
+          to top left,
+          rgb(210, 210, 15),
+          rgb(15, 210, 15),
+          rgb(15, 15, 210)
+        );
+      }
+      div {
+        text-align: center;
+        font-size: 2rem;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2{
+        text-align: center;
+      }
+      button {
+        text-align: center;
+        font-size: larger;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        margin: 2rem 1rem;
+        border: 4px solid rgb(255, 255, 255);
+        background-color: rgba(0, 124, 21, 0);
+        color: rgb(255, 255, 255);
+        border-radius: 10rem;
+        cursor: pointer;
+      }
+      #lista{
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        width: 420px;
+        height: 250px;
+        border-collapse: collapse;
+        border: 2px solid;
+        border-color: white;
+      }
+      table#lista tr, td{
+        padding: 15px;
+        font-size: larger;
+      }
+      #windspeed2{font-size: larger;}
+      #beallito{
+        position: absolute;
+        top: 300px;
+        left: 160px;
+        width: 150px;
+        height: 250px;
+        border-collapse: collapse;
+        border: 2px solid;
+        border-color: white;
+      }
+      table#beallito tr, td{
+        padding: 1px;
+        font-size: larger;
+        text-align: center; 
+        vertical-align: middle;
+      }
+      #li{
+        height: 400px;
+        width:450px;
+        position: absolute;
+        top: 465px;
+        left: 500px;
+      }
+      #gv{
+        height: 400px;
+        width:450px;
+        position: absolute;
+        top: 15px;
+        left: 500px;
+      }
+      #tp{
+        height: 400px;
+        width:450px;
+        position: absolute;
+        top: 15px;
+        left: 1000px;
+      }
+      #hm{
+        height: 400px;
+        width:450px;
+        position: absolute;
+        top: 465px;
+        left: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--<h1>CONTROL PANEL</h1>
+    <h2 id="incoming">incoming</h2>-->
+    <table id="lista">
+      <tr>
+        <td>WIND SPEED :</td>
+        <td id="windspeed">0</td>
+        <td>[%]</td>
+      </tr>
+      <tr>
+        <td>GENERATED VOLTAGE :</td>
+        <td id="generatedvoltage">0</td>
+        <td>[V]</td>
+      </tr>
+      <tr>
+        <td>TEMPERATURE :</td>
+        <td id="temperature">0</td>
+        <td>[°C]</td>
+      </tr>
+      <tr>
+        <td>HUMIDITY :</td>
+        <td id="humidity">0</td>
+        <td>[%]</td>
+      </tr>
+      <tr>
+        <td>LIGHT INTENSITY</td>
+        <td id="lightintensity">0</td>
+        <td>[%]</td>
+      </tr>
+    </table>
+    <table id="beallito">
+      <tr>
+        <td>
+        <button id="maxspd">MAX</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <button id="plus10">+10%</button>
+        </td>
+      </tr>
+      <tr id="windspeed2"><td>WIND SPEED</td></tr>
+      <tr>
+        <td>
+        <button id="minus10">-10%</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <button id="stopspd">STOP</button>
+        </td>
+      </tr>
+    </table>
+    
+    <div id="gv"></div>
+    <div id="li"></div>
+    <div id="tp"></div>
+    <div id="hm"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="js/iot-mqtt.js"></script>
+  </body>
+  
+</html>
